@@ -1,9 +1,10 @@
-package main.java.com.psly.concurrent;
+package main.java.com.psly.test;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedTransferQueue;
 
+import main.java.com.psly.concurrent.ObsFreeQueue;
 import main.java.com.psly.concurrent.ObsFreeQueue.Handle;
 
 public class benchmark1 {
