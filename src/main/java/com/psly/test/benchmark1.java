@@ -22,7 +22,7 @@ public class benchmark1 {
 	
 	private static void testObsFreeQueue() throws InterruptedException {
 		final ObsFreeQueue<Integer> queues = new ObsFreeQueue<Integer>();
-		System.out.println("testObsFreeQueue");
+		System.out.println("\ntestObsFreeQueue");
 		for(int t = 0; t < rounds; ++t) {
 			int thread_num = MetaDATAs.thread_num;
 			final int counts = MetaDATAs.counts / thread_num;
@@ -68,7 +68,7 @@ public class benchmark1 {
 	
 	private static void testConcurrentLinkedQueue() throws InterruptedException {
 		final Queue<Integer> queues = new ConcurrentLinkedQueue<Integer>();
-		System.out.println("testConcurrentLinkedQueue");
+		System.out.println("\ntestConcurrentLinkedQueue");
 		for(int t = 0; t < rounds; ++t) {
 			int thread_num = MetaDATAs.thread_num;
 			final int counts = MetaDATAs.counts / thread_num;
@@ -112,7 +112,7 @@ public class benchmark1 {
 	
 	private static void testLinkedTransferQueue() throws InterruptedException {
 		final Queue<Integer> queues = new LinkedTransferQueue<Integer>();
-		System.out.println("testLinkedTransferQueue");
+		System.out.println("\ntestLinkedTransferQueue");
 		for(int t = 0; t < rounds; ++t) {
 			int thread_num = MetaDATAs.thread_num;
 			final int counts = MetaDATAs.counts / thread_num;
