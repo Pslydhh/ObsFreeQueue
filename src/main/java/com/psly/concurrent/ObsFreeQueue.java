@@ -1,15 +1,16 @@
 package main.java.com.psly.concurrent;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
+
 import sun.misc.Unsafe;
 
 /**
  *
  * @since 1.6
- * @author Pslydhh 2018.03.27
+ * @author Pslydhh 2018.04.03
  * @param <E> the type of elements held in this collection
  */
 public class ObsFreeQueue<T> {
@@ -18,7 +19,7 @@ public class ObsFreeQueue<T> {
 		this.popNode = this.putNode;
 		this.putIndex = new AtomicLong();
 		this.popIndex = new AtomicLong();
-		this.threadMap = new HashMap<Thread, Handle<T>>();
+		this.threadMap = new ConcurrentHashMap<Thread, Handle<T>>();
 	}
 	
 	final Map<Thread, Handle<T>> threadMap;
