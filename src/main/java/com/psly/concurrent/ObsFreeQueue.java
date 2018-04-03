@@ -1,8 +1,6 @@
 package main.java.com.psly.concurrent;
 
 import java.lang.reflect.Field;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 import sun.misc.Unsafe;
@@ -19,10 +17,10 @@ public class ObsFreeQueue<T> {
 		this.popNode = this.putNode;
 		this.putIndex = new AtomicLong();
 		this.popIndex = new AtomicLong();
-		this.threadMap = new ConcurrentHashMap<Thread, Handle<T>>();
+//		this.threadMap = new ConcurrentHashMap<Thread, Handle<T>>();
 	}
 	
-	final Map<Thread, Handle<T>> threadMap;
+//	final Map<Thread, Handle<T>> threadMap;
 	private Node<T> putNode;
 	private Node<T> popNode;
 	private AtomicLong putIndex;
@@ -204,9 +202,9 @@ public class ObsFreeQueue<T> {
 	 * Threads must first registered for the queue as get the useful Handle.
 	 */
 	public Handle<T> register() {
-		Thread thread = Thread.currentThread();
+//		Thread thread = Thread.currentThread();
 		Handle<T> handle = new Handle<T>(this.putNode, this.popNode);
-		threadMap.put(thread, handle);
+//		threadMap.put(thread, handle);
 		return handle;
 	}
 	
@@ -215,8 +213,8 @@ public class ObsFreeQueue<T> {
 	 */
 	public void unregister(Handle<T> handle) {
 		handle.popNode = handle.putNode = handle.spare = null;
-		Thread thread = Thread.currentThread();
-		threadMap.remove(thread);
+//		Thread thread = Thread.currentThread();
+//		threadMap.remove(thread);
 	}
 	
 	public static class Handle<T>{
