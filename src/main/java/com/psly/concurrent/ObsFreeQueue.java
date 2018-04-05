@@ -17,10 +17,8 @@ public class ObsFreeQueue<T> {
 		this.popNode = this.putNode;
 		this.putIndex = new AtomicLong();
 		this.popIndex = new AtomicLong();
-//		this.threadMap = new ConcurrentHashMap<Thread, Handle<T>>();
 	}
 	
-//	final Map<Thread, Handle<T>> threadMap;
 	private Node<T> putNode;
 	private Node<T> popNode;
 	private AtomicLong putIndex;
