@@ -202,9 +202,7 @@ public class ObsFreeQueue<T> {
 	 * Threads must first registered for the queue as get the useful Handle.
 	 */
 	public Handle<T> register() {
-//		Thread thread = Thread.currentThread();
 		Handle<T> handle = new Handle<T>(this.putNode, this.popNode);
-//		threadMap.put(thread, handle);
 		return handle;
 	}
 	
@@ -213,8 +211,6 @@ public class ObsFreeQueue<T> {
 	 */
 	public void unregister(Handle<T> handle) {
 		handle.popNode = handle.putNode = handle.spare = null;
-//		Thread thread = Thread.currentThread();
-//		threadMap.remove(thread);
 	}
 	
 	public static class Handle<T>{
