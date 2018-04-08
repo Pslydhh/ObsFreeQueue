@@ -231,7 +231,7 @@ public class ObsFreeQueue<T> {
 		private static final Object TOMBSTONE = new Object();
 		
 		private long id;
-		private final Object[] cells;
+		private volatile Object[] cells;
 		private Node<T> next;
 		
 		public Node() {
