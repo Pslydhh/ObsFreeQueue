@@ -249,7 +249,8 @@ public class ObsFreeQueue<T> {
 		}
 		
 		public T getCells(long idx) {
-			return (T) cells[(int) idx];
+		//	return (T) cells[(int) idx];
+			return (T) _unsafe.getObjectVolatile(cells, rawIndex(idx));
 		}
 		
 		public boolean casNext(Node<T> cmp, Node<T> val) {
