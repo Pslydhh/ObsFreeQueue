@@ -16,8 +16,8 @@ public class ObsFreeQueue<T> {
 		this.putNode = new Node<T>();
 		this.popNode = this.putNode;
 		this.putIndex = new AtomicLong();
-		this.popIndex = new AtomicLong();
-	}
+		this.popIndex = new AtomicLong(); 
+	}			
 	
 	private Node<T> putNode;
 	private Node<T> popNode;
