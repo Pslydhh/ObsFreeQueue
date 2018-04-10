@@ -11,7 +11,7 @@ import sun.misc.Unsafe;
  * @author Pslydhh 2018.04.03
  * @param <E> the type of elements held in this collection
  */
-public class ObsFreeQueue<T> { 
+public class ObsFreeQueue<T> {
 	public ObsFreeQueue() {
 		this.putNode = new Node<T>();
 		this.popNode = this.putNode;
