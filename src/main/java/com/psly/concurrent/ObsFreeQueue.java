@@ -95,8 +95,7 @@ public class ObsFreeQueue<T> {
 				chasePut(node);
 			}
 			// if the cell is null and the compare-and-swap return true, we successful!!
-			if(node.getCells(index & Node.CELLS_BIT) == null
-				&& node.casCells(index & Node.CELLS_BIT, null, item)) {
+			if(null == node.xchgCells(index & Node.CELLS_BIT, item)) {
 				return ;
 			}
 		}
@@ -125,17 +124,17 @@ public class ObsFreeQueue<T> {
 				chasePop(node);
 			}
 			
-			T val = null;
+			Object val = null;
 			do {
 				val = node.getCells(index & Node.CELLS_BIT);
 				// If the cell is not empty, then we return it as ending
 				if(val != null) { 
-					return val;
+					return (T) val;
 				}
 				--times;
 			} while(times > 0);
 			
-			if(node.casCells(index & Node.CELLS_BIT, null, Node.TOMBSTONE)) {
+			if(null == (val = node.xchgCells(index & Node.CELLS_BIT, Node.TOMBSTONE))) {
 				// if we surpassed putIndex, so we should return null as ending...
 				if(index >= this.putIndex.get()) {
 					long putPrev;
@@ -150,8 +149,8 @@ public class ObsFreeQueue<T> {
 				continue;
 			}
 			// here the cell mustn't be empty! then we return it as ending
-			val = node.getCells(index & Node.CELLS_BIT);
-			return val;
+//			val = node.getCells(index & Node.CELLS_BIT);
+			return (T) val;
 		}
 	}
 	
@@ -244,8 +243,9 @@ public class ObsFreeQueue<T> {
 			return cells_entry_base + idx * cells_entry_scale;
 		}
 		  
-		public boolean casCells(long idx, Object cmp, Object val) {
-			return _unsafe.compareAndSwapObject(cells, rawIndex(idx), cmp, val);
+		public Object xchgCells(long idx, Object val) {
+			return _unsafe.getAndSetObject(cells, rawIndex(idx), val);
+			//return _unsafe.compareAndSwapObject(cells, rawIndex(idx), cmp, val);
 		}
 		
 		public T getCells(long idx) {
