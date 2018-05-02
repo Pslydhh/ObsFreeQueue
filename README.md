@@ -82,7 +82,6 @@ public class benchmark3 {
 }
 </pre></code>
 # output
-<pre<code>
 
 testObsFreeQueue
 
@@ -100,4 +99,4 @@ ints[0-9999999] has been Verify through
 10000000 puts times(seconds): 0.624
 ints[0-9999999] has been Verify through
 10000000 pops times(seconds): 0.231
-</pre></code>
+
