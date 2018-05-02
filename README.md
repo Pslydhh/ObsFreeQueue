@@ -86,17 +86,9 @@ public class benchmark3 {
 testObsFreeQueue
 
 0 20000000 Ops Hello world! main
+
 10000000 puts times(seconds): 0.786
+
 ints[0-9999999] has been Verify through
+
 10000000 pops times(seconds): 0.279
-
-1 20000000 Ops Hello world! main
-10000000 puts times(seconds): 0.75
-ints[0-9999999] has been Verify through
-10000000 pops times(seconds): 0.287
-
-2 20000000 Ops Hello world! main
-10000000 puts times(seconds): 0.624
-ints[0-9999999] has been Verify through
-10000000 pops times(seconds): 0.231
-
