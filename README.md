@@ -6,7 +6,7 @@ Benchmarks for ObsFreeQueue/ConcurrentLinkedQueue/LinkedTransferQueue, run in 4 
 - test/benchmark2.java for one enqueue/one dequeue(in different cycles), and until 5,000,000 pairs;
 - test/benchmark3.java for one enqueue until 10,000,000 times and then one dequeue until 10,000,000 times;
 # command
--XX:-RestrictContended -Xmx1024m -XX:+UseG1GC
+-XX:-RestrictContended -Xmx1024m -XX:+UseG1GC  -XX:+TieredCompilation
 # test_
 <pre><code>
 package main.java.com.psly.test;
