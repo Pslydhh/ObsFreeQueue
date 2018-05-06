@@ -89,8 +89,8 @@ testObsFreeQueue
 
 0 20000000 Ops Hello world! main
 
-10000000 puts times(seconds): 0.786
+10000000 puts times(seconds): 0.379
 
 ints[0-9999999] has been Verify through
 
-10000000 pops times(seconds): 0.279
+10000000 pops times(seconds): 0.273
