@@ -1,5 +1,6 @@
 # ObsFreeQueue
-An simple high performance Obstruction-Free MPMC unbounded Queue Based on FAA(FetchAndAdd) and Linked Arrays
+An simple high performance Obstruction-Free MPMC unbounded Queue Based on FAA(FetchAndAdd) and Linked Arrays.
+and this queue is Obviously faster than ConcurrentLinkedQueue and LinkedTransferQueue in JUC.
 # benchmarks
 Benchmarks for ObsFreeQueue/ConcurrentLinkedQueue/LinkedTransferQueue, run in 4 threads:
 - test/benchmark1.java for one enqueue/one dequeue, and until 10,000,000 pairs;
