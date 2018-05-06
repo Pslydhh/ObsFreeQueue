@@ -139,8 +139,8 @@ public class ObsFreeQueue<T> {
 				if(index >= this.putIndex.get()) {
 					long putPrev;
 					// and if our index greater than putIndex, we should raise it
-					while(index > (putPrev = this.putIndex.get())) {
-						if(this.putIndex.compareAndSet(putPrev, index))
+					while(index >= (putPrev = this.putIndex.get())) {
+						if(this.putIndex.compareAndSet(putPrev, index + 1))
 							return null;
 					}
 					return null;
