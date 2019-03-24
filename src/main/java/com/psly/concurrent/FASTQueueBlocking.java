@@ -63,7 +63,7 @@ public class FASTQueueBlocking<T> {
                     return;
                 }
                 Thread.yield();
-            } else { // must be offset == Node.CELLS_SIZE
+            } else if(offset == Node.CELLS_SIZE) { // must be offset == Node.CELLS_SIZE
                 linkNextNode(putNode, node, index);
             }
         }        
@@ -101,7 +101,7 @@ public class FASTQueueBlocking<T> {
                     return (T) val;                    
                 }
                 Thread.yield();
-            } else { // must be offset == Node.CELLS_SIZE
+            } else if(offset == Node.CELLS_SIZE) { // must be offset == Node.CELLS_SIZE
                 linkNextNode(popNode, node, index);
             }
         }
